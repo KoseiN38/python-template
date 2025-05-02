@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  python-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - ~/.gitconfig:/root/.gitconfig:ro  # ホストのGit設定を共有（任意）
+    command: sleep infinity  # コンテナを起動したままにする
+    environment:
+      - PYTHONPATH=/app
+    # 必要に応じてポートを公開
+    # ports:
+    #   - "8000:8000"
+    #

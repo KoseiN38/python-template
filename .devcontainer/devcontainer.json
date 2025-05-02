@@ -1,0 +1,38 @@
+{
+    "name": "Python Development",
+    "dockerFile": "../Dockerfile",
+    "context": "..",
+    // コンテナ内の作業ディレクトリを指定
+    "workspaceFolder": "/app",
+    // コンテナ起動時の設定
+    "settings": {
+        "python.defaultInterpreterPath": "/app/.venv/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    // インストールする拡張機能
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker",
+        "njpwerner.autodocstring",
+        "streetsidesoftware.code-spell-checker"
+    ],
+    // オプション: コンテナに追加する機能
+    "features": {
+        "git": "latest"
+    },
+    // 環境変数
+    "remoteEnv": {
+        "PYTHONPATH": "${containerWorkspaceFolder}"
+    },
+    // 転送するポート (必要に応じて設定)
+    "forwardPorts": [
+        8000
+    ],
+    // コンテナ作成後のコマンド実行 (任意)
+    "postCreateCommand": "poetry install --no-root --no-interaction"
+}
