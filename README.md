@@ -9,15 +9,17 @@
 
 ### Dev Containerの立ち上げ
 
-1. **VSCodeのセットアップ**  
+1. **リポジトリの取得**  
+   - `git clone <本リポジトリurl>`でクローンします。
+2. **VSCodeのセットアップ**  
    - 必要な拡張機能をインストールします（例: Remote - Containers）。
-2. **Dev Containerの起動**  
+3. **Dev Containerの起動**  
    - VSCodeでリポジトリを開き、`Reopen in Container`を選択します。
-3. **Poetryのセットアップ**  
+4. **Poetryのセットアップ**  
    - コンテナ内で以下のコマンドを実行して依存関係をインストールします。  
 
      ```bash
-     poetry install --no-root --no-interaction
+     poetry add <ライブラリ名>
      ```
 
 ### Pythonの使用方法
@@ -25,13 +27,13 @@
 - スクリプトの実行例:
 
   ```bash
-  python src/main.py
+  poetry run python src/custom/interfaces/main.py
   ```
 
 - テストの実行例:
 
   ```bash
-  pytest
+  poetry run pytest -v test/
   ```
 
 ## ディレクトリ構成
